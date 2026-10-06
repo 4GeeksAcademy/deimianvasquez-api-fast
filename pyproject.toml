@@ -1,0 +1,23 @@
+[project]
+name = "deimianvasquez-api-fast"
+version = "0.1.0"
+description = "Apication Contact List"
+readme = "README.md"
+authors = [
+    { name = "Deimian Vásquez", email = "deimianvasquez@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.142.2",
+]
+
+[project.scripts]
+deimianvasquez-api-fast = "deimianvasquez_api_fast:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "app"
+module-root = "."
