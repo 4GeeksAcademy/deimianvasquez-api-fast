@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, status
-from app.models import Contact, ContactCreate, ContactReplace, ContactUpdate
+from app.models.contacts import Contact, ContactCreate, ContactReplace, ContactUpdate
 
 
 router = APIRouter()

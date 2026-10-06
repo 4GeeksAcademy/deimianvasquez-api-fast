@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException, status
 
 app = FastAPI()
-from app.routers import contacts
+from app.routers import contacts, todos
 
 app.include_router(contacts.router, tags=["Contacts"])
+app.include_router(todos.router, tags=["Todos"])
 
 @app.get("/")
 async def root():

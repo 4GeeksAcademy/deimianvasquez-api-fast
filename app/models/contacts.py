@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class ContactCreate(BaseModel):
     name: str
     email: str
@@ -7,13 +8,14 @@ class ContactCreate(BaseModel):
     city: str | None = None
 
 
-class ContactReplace(BaseModel): # put
+class ContactReplace(BaseModel):
     name: str
     email: str
     phone: str
-    city: str 
+    city: str
 
-class ContactUpdate(BaseModel): # patch
+
+class ContactUpdate(BaseModel):
     name: str | None = None
     email: str | None = None
     phone: str | None = None
@@ -22,5 +24,3 @@ class ContactUpdate(BaseModel): # patch
 
 class Contact(ContactCreate):
     id: int
-  
-
