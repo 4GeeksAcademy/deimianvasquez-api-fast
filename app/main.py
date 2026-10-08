@@ -1,10 +1,18 @@
-from fastapi import FastAPI, HTTPException, status
-
-app = FastAPI()
+import os
+from dotenv import load_dotenv
+from fastapi import FastAPI
 from app.routers import contacts, todos
+
+
+load_dotenv()
+
+server_url = os.getenv("SERVER_URL", "http://127.0.0.1:8000")
+
+app = FastAPI(servers=[{"url": server_url, "description": "URL Base"}])
 
 app.include_router(contacts.router, tags=["Contacts"])
 app.include_router(todos.router, tags=["Todos"])
+
 
 @app.get("/")
 async def root():
@@ -33,4 +41,3 @@ async def health_check():
 #     "email": "deimian@example.com",
 #     "url_avatar": "https://example.com/avatar.jpg"
 # }
-

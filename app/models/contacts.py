@@ -1,18 +1,18 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, EmailStr
 
 
 class ContactCreate(BaseModel):
     name: str
-    email: str
+    email: EmailStr = Field(..., description="The email address of the contact")
     phone: str
     city: str | None = None
 
 
 class ContactReplace(BaseModel):
     name: str
-    email: str
+    email: EmailStr = Field(..., description="The email address of the contact")
     phone: str
-    city: str
+    city: str | None = None
 
 
 class ContactUpdate(BaseModel):
